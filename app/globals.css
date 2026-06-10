@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AOS overrides */
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #C9A84C;
+  border-radius: 3px;
+}
+
+/* Gold line utility */
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: #C9A84C;
+  margin: 16px 0;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-20 lg:py-28;
+}
+
+/* Max-width container */
+.site-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Section tag (eyebrow text) */
+.section-tag {
+  @apply text-xs tracking-[3px] uppercase text-gold font-medium font-sans block mb-3;
+}
+
+/* Headings */
+.section-title {
+  @apply font-serif text-white;
+}
+
+/* Cards */
+.service-card-base {
+  @apply bg-dark-card border border-[#2a2a2a] rounded-2xl p-6 transition-all duration-300;
+}
+.service-card-base:hover {
+  @apply border-gold;
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.15);
+}
+
+/* Primary button */
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-gold text-black font-bold py-3 px-8 rounded-full hover:bg-gold-light transition-all duration-300;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+/* Secondary / outline button */
+.btn-outline {
+  @apply inline-flex items-center gap-2 border border-white/40 text-white py-3 px-8 rounded-full hover:border-gold hover:text-gold transition-all duration-300;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  @apply outline outline-2 outline-gold outline-offset-2;
+}
