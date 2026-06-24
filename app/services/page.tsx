@@ -40,7 +40,7 @@ const SERVICES: ServiceItem[] = [
       'Property & Asset Division',
     ],
     // REPLACE: Add a relevant family law image
-    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191011?w=700&q=80',
+    image: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=700&q=80',
   },
   {
     id: 'civil',

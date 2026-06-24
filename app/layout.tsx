@@ -62,11 +62,12 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
           crossOrigin="anonymous"
         />
-        {/* Content-Security-Policy */}
+        {/* Content-Security-Policy - disabled in development to prevent blocking Next.js HMR/assets
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:; frame-src https://maps.google.com; connect-src 'self';"
         />
+        */}
       </head>
       <body className="bg-black text-white font-sans antialiased overflow-x-hidden">
         <AOSInit />
