@@ -44,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} ${garamond.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
         {/* Font Awesome 6 */}
         <link
           rel="stylesheet"
