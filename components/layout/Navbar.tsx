@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SITE_CONFIG } from '@/lib/constants'
 
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
+
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
@@ -18,14 +20,13 @@ export default function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { openWhatsAppModal } = useWhatsAppModal()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const waHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
 
   return (
     <>
@@ -80,15 +81,14 @@ export default function Navbar() {
               <i className="fas fa-phone text-xs" aria-hidden="true" />
               Call Now
             </a>
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm py-2 px-5"
+            <button
+              type="button"
+              onClick={() => openWhatsAppModal()}
+              className="btn-primary text-sm py-2 px-5 cursor-pointer"
             >
               <i className="fab fa-whatsapp" aria-hidden="true" />
               WhatsApp
-            </a>
+            </button>
           </div>
 
           {/* Hamburger */}
@@ -129,16 +129,17 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary mt-4"
-              onClick={() => setMobileOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false)
+                openWhatsAppModal()
+              }}
+              className="btn-primary mt-4 cursor-pointer"
             >
               <i className="fab fa-whatsapp" aria-hidden="true" />
               WhatsApp Now
-            </a>
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

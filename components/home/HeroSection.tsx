@@ -6,12 +6,15 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { SITE_CONFIG } from '@/lib/constants'
 
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
+
 // Three.js canvas loaded only client-side
 const HeroCanvas = dynamic(() => import('./HeroCanvas'), { ssr: false })
 
 export default function HeroSection() {
   const headingRef = useRef<HTMLHeadingElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
+  const { openWhatsAppModal } = useWhatsAppModal()
 
   useEffect(() => {
     const initGSAP = async () => {
@@ -50,8 +53,6 @@ export default function HeroSection() {
     }
     initGSAP()
   }, [])
-
-  const waHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-black">
@@ -99,10 +100,14 @@ export default function HeroSection() {
                   <i className="fas fa-calendar-check" aria-hidden="true" />
                   Book Consultation
                 </Link>
-                <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-outline text-base py-3 px-8">
+                <button
+                  type="button"
+                  onClick={() => openWhatsAppModal()}
+                  className="btn-outline text-base py-3 px-8 cursor-pointer"
+                >
                   <i className="fab fa-whatsapp" aria-hidden="true" />
                   WhatsApp Now
-                </a>
+                </button>
               </div>
 
               <div className="flex items-center gap-3">

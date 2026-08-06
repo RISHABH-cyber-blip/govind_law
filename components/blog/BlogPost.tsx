@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { SITE_CONFIG } from '@/lib/constants'
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
 
 interface BlogPostProps {
   category: string
@@ -12,6 +13,7 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ category, title, date, readTime, children }: BlogPostProps) {
+  const { openWhatsAppModal } = useWhatsAppModal()
   return (
     <>
       {/* Hero */}
@@ -81,15 +83,14 @@ export default function BlogPost({ category, title, date, readTime, children }: 
                     <i className="fas fa-calendar-check mr-2" aria-hidden="true" />
                     Book Consultation
                   </Link>
-                  <a
-                    href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center border border-white/20 text-white font-medium py-3 px-4 rounded-full text-sm hover:border-gold hover:text-gold transition-colors"
+                  <button
+                    type="button"
+                    onClick={() => openWhatsAppModal()}
+                    className="block w-full text-center border border-white/20 text-white font-medium py-3 px-4 rounded-full text-sm hover:border-gold hover:text-gold transition-colors cursor-pointer"
                   >
                     <i className="fab fa-whatsapp mr-2" aria-hidden="true" />
                     WhatsApp Now
-                  </a>
+                  </button>
                 </div>
               </div>
 

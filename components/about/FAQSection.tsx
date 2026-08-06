@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import SectionHeading from '@/components/ui/SectionHeading'
-import { SITE_CONFIG } from '@/lib/constants'
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
 import type { FAQItem } from '@/lib/types'
 
 const FAQS: FAQItem[] = [
@@ -60,7 +60,7 @@ const FAQS: FAQItem[] = [
 
 export default function FAQSection() {
   const [openId, setOpenId] = useState<string | null>(null)
-  const waHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
+  const { openWhatsAppModal } = useWhatsAppModal()
 
   const toggle = (id: string) => setOpenId((prev) => (prev === id ? null : id))
 
@@ -117,10 +117,14 @@ export default function FAQSection() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mt-12">
-          <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <button
+            type="button"
+            onClick={() => openWhatsAppModal()}
+            className="btn-primary cursor-pointer"
+          >
             <i className="fab fa-whatsapp" aria-hidden="true" />
             WhatsApp Now
-          </a>
+          </button>
           <Link href="/contact" className="btn-outline">
             <i className="fas fa-calendar-check" aria-hidden="true" />
             Book Consultation

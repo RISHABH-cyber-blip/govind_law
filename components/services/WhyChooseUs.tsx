@@ -1,5 +1,7 @@
+'use client'
+
 import Link from 'next/link'
-import { SITE_CONFIG } from '@/lib/constants'
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
 
 const WHY_POINTS = [
   'Direct access to your lawyer — no juniors handling your case',
@@ -11,7 +13,7 @@ const WHY_POINTS = [
 ]
 
 export default function WhyChooseUs() {
-  const waHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
+  const { openWhatsAppModal } = useWhatsAppModal()
 
   return (
     <section className="section-padding bg-black">
@@ -46,15 +48,14 @@ export default function WhyChooseUs() {
                 <i className="fas fa-calendar-check mr-2" aria-hidden="true" />
                 Book Consultation
               </Link>
-              <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center border border-white/20 text-white font-semibold text-lg py-5 px-8 rounded-lg hover:border-gold hover:text-gold transition-colors"
+              <button
+                type="button"
+                onClick={() => openWhatsAppModal()}
+                className="block w-full text-center border border-white/20 text-white font-semibold text-lg py-5 px-8 rounded-lg hover:border-gold hover:text-gold transition-colors cursor-pointer"
               >
                 <i className="fab fa-whatsapp mr-2" aria-hidden="true" />
                 WhatsApp Now
-              </a>
+              </button>
             </div>
           </div>
 

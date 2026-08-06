@@ -1,10 +1,13 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import AnimatedCounter from '@/components/ui/AnimatedCounter'
 import { SITE_CONFIG } from '@/lib/constants'
+import { useWhatsAppModal } from '@/context/WhatsAppContext'
 
 export default function AdvocateSection() {
-  const waHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(SITE_CONFIG.whatsappMessage)}`
+  const { openWhatsAppModal } = useWhatsAppModal()
 
   return (
     <section className="section-padding bg-dark-card">
@@ -61,10 +64,14 @@ export default function AdvocateSection() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href={waHref} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <button
+                type="button"
+                onClick={() => openWhatsAppModal()}
+                className="btn-primary cursor-pointer"
+              >
                 <i className="fab fa-whatsapp" aria-hidden="true" />
                 WhatsApp Now
-              </a>
+              </button>
               <Link href="/contact" className="btn-outline">
                 <i className="fas fa-calendar-check" aria-hidden="true" />
                 Book Consultation
