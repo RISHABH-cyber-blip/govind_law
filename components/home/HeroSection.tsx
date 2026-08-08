@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { SITE_CONFIG } from "@/lib/constants";
 
 import { useWhatsAppModal } from "@/context/WhatsAppContext";
+import ReviewsSummary from "@/components/reviews/ReviewsSummary";
 
 // Three.js canvas loaded only client-side
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
@@ -139,11 +140,8 @@ export default function HeroSection() {
                 </button>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="text-gold tracking-widest text-base">★★★★★</div>
-                <p className="text-gray-400 text-sm">
-                  Trusted by 150+ Clients Across Delhi NCR
-                </p>
+              <div className="mt-8">
+                <ReviewsSummary />
               </div>
             </div>
           </div>
