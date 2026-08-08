@@ -19,7 +19,7 @@ export const SITE_CONFIG = {
 
   instagram1:
     "https://www.instagram.com/advocate_govind_mishra__2179?igsh=czYxY2l6azJldW52",
-  instagram2: "https://www.instagram.com/adv_a.s?igsh=MThhampkNXl2eDFocA%3D%3D",
+  instagram2: "https://www.instagram.com/nikitaadvocate?igsh=c28wZDdxam9hYXVz",
   linkedin:
     "https://www.linkedin.com/in/advocate-govind-mishra-b94458258?utm_source=share_via&utm_content=profile&utm_medium=member_android",
   facebook: "https://www.facebook.com/govind.mishrs.3?mibextid=ZbWKwL",

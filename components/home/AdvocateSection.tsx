@@ -107,15 +107,15 @@ export default function AdvocateSection() {
             </div>
           </div>
 
-          {/* ── Advocate 2: Akansh Sharma ── */}
+          {/* ── Advocate 2: Nikita Harsoliya ── */}
           <div
             className="bg-black border border-[#252525] rounded-2xl overflow-hidden"
             data-aos="fade-left"
           >
             <div className="relative h-[380px]">
               <Image
-                src="/images/team/akansh-sharma.jpg"
-                alt="Adv. Akansh Sharma"
+                src="/images/team/nikita-harsoliya.jpg"
+                alt="Adv. Nikita Harsoliya"
                 fill
                 className="object-cover object-top"
                 style={{ filter: "grayscale(10%)" }}
@@ -129,7 +129,7 @@ export default function AdvocateSection() {
               />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="font-serif text-gold text-2xl font-semibold">
-                  Adv. Akansh Sharma
+                  Adv. Nikita Harsoliya
                 </h3>
                 <p className="text-gray-300 text-sm mt-1">
                   Advocate | Bar Council of Delhi
@@ -140,10 +140,10 @@ export default function AdvocateSection() {
               <div className="flex flex-wrap gap-2 mb-4">
                 {[
                   "Criminal Law",
+                  "Family Law",
                   "Civil Litigation",
                   "Consumer Matters",
-                  "PIL",
-                  "Cheque Bounce",
+                  "Corporate Law",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -154,10 +154,10 @@ export default function AdvocateSection() {
                 ))}
               </div>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                Dedicated advocate practising before Delhi High Court and Dwarka
-                District Courts. Specialises in criminal defence, civil
-                litigation, consumer protection matters, and PIL. Known for
-                client-first approach and meticulous legal drafting.
+                Dedicated advocate practising across Delhi NCR courts with
+                expertise in criminal law, family law, civil litigation, and
+                consumer matters. Known for a client-first approach and
+                meticulous legal drafting.
               </p>
               <div className="flex items-center gap-4 text-sm text-gray-400 mb-5 pb-5 border-b border-[#252525]">
                 <span>

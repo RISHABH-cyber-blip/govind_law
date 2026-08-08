@@ -43,19 +43,18 @@ and no hidden charges at any stage of the proceedings.`,
     clients: "150+",
   },
   {
-    name: "Adv. Akansh Sharma",
+    name: "Adv. Nikita Harsoliya",
     designation: "Advocate",
-    qualification: "LL.B.",
-    photo: "/images/team/akansh-sharma.jpg",
+    qualification: "B.A. LL.B., LL.M. (Corporate & Commercial Law)",
+    photo: "/images/team/nikita-harsoliya.jpg",
     courts: ["Delhi High Court", "Dwarka District Courts", "Tis Hazari Courts"],
     practice: [
       "Criminal Defence",
       "Civil Litigation",
       "Consumer Protection Cases",
-      "PIL",
-      "Cheque Bounce Matters",
       "Family Law",
       "Commercial Disputes",
+      "Corporate & Commercial Law",
     ],
     skills: [
       "Legal Drafting",
@@ -63,12 +62,12 @@ and no hidden charges at any stage of the proceedings.`,
       "Legal Research",
       "Client Counselling",
     ],
-    bio1: `Adv. Akansh Sharma is a committed advocate practising before Delhi High Court and
-Dwarka District Courts. Known for a meticulous approach to case preparation and a
-client-centric philosophy, he handles a broad range of civil and criminal matters.`,
-    bio2: `With expertise spanning criminal defence, consumer protection, PIL, and commercial
-disputes, Adv. Sharma ensures every client receives direct access and thorough
-representation at each stage of their legal journey.`,
+    bio1: `Adv. Nikita Harsoliya is a dedicated advocate practising across Delhi High Court
+  and Dwarka District Courts. With a strong academic foundation in corporate and commercial
+  law, she handles a broad range of civil, criminal, family, and consumer matters.`,
+    bio2: `Known for a meticulous approach to case preparation and a client-first philosophy,
+  Adv. Harsoliya ensures every client receives clear communication and thorough
+  representation at each stage of their legal journey.`,
     phone: "9958026303",
     experience: "Experienced",
     clients: "100+",
@@ -77,6 +76,13 @@ representation at each stage of their legal journey.`,
 
 // ── Supporting team (small cards) ──────────────────────────────
 const TEAM_MEMBERS = [
+  {
+    name: "Adv. Akansh Sharma",
+    designation: "Advocate",
+    qualification: "LL.B.",
+    photo: "/images/team/akansh-sharma.jpg",
+    practice: "Criminal Defence, Civil Litigation, Consumer Matters, PIL",
+  },
   {
     name: "Adv. Rajat Sikri",
     designation: "Advocate — Government Pleader, Union of India",
