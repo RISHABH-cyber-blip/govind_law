@@ -39,14 +39,18 @@ export default function AboutHero() {
         >
           {[
             { target: 150, label: "Satisfied Clients" },
-            { target: 10, label: "Years Experience" },
+            { target: 4, suffix: "+", label: "Years Experience" },
             { target: 500, label: "Cases Handled" },
           ].map((s) => (
             <div
               key={s.label}
               className="bg-dark-card border border-gold/20 rounded-xl py-8 px-4"
             >
-              <AnimatedCounter target={s.target} label={s.label} />
+              <AnimatedCounter
+                target={s.target}
+                suffix={s.suffix}
+                label={s.label}
+              />
             </div>
           ))}
         </div>
