@@ -25,7 +25,7 @@ export const SITE_CONFIG = {
   facebook: "https://www.facebook.com/govind.mishrs.3?mibextid=ZbWKwL",
   twitter: "https://x.com/YOUR_HANDLE",
 
-  officeHours: "Monday – Saturday: 10:00 AM – 7:00 PM | Sunday: Closed",
+  officeHours: "Monday – Saturday: 10:00 AM – 10:00 PM | Sunday: Closed",
   tagline: "Justice Is Not a Luxury. It Is Your Right.",
   copyrightYear: "2026",
 } as const;
