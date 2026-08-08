@@ -91,13 +91,6 @@ const TEAM_MEMBERS = [
     practice: "Criminal Law, Civil Litigation, Writ Petitions, PIL",
   },
   {
-    name: "Adv. Nikita Harsoliya",
-    designation: "Advocate",
-    qualification: "B.A. LL.B., LL.M. (Corporate & Commercial Law)",
-    photo: "/images/team/nikita-harsoliya.jpg",
-    practice: "Criminal Law, Family Law, Civil Litigation, Consumer Matters",
-  },
-  {
     name: "Adv. Seema Rani",
     designation: "Advocate",
     qualification: "LL.B.",
