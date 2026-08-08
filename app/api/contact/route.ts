@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import type { ContactAPIResponse } from "@/lib/types";
+import { SITE_CONFIG } from "@/lib/constants";
 
 // TODO: Add rate limiting before production (e.g. upstash/ratelimit)
 
@@ -35,10 +36,11 @@ export async function POST(
       return NextResponse.json({ error: "Message too long." }, { status: 400 });
     }
 
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error(
-        "[contact/route] Missing EMAIL_USER or EMAIL_PASS configuration",
-      );
+    const mailbox = process.env.EMAIL_USER || SITE_CONFIG.email;
+    const recipient = process.env.RECIPIENT_EMAIL || SITE_CONFIG.email;
+
+    if (!process.env.EMAIL_PASS) {
+      console.error("[contact/route] Missing EMAIL_PASS configuration");
       return NextResponse.json(
         {
           error:
@@ -56,14 +58,14 @@ export async function POST(
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
+        user: mailbox,
         pass: process.env.EMAIL_PASS,
       },
     });
 
     await transporter.sendMail({
-      from: `"${name.trim()}" <${process.env.EMAIL_USER}>`,
-      to: process.env.RECIPIENT_EMAIL || process.env.EMAIL_USER,
+      from: `"MH Legal Contact" <${mailbox}>`,
+      to: recipient,
       replyTo: email.trim(),
       subject: `New Legal Inquiry from ${name.trim()}`,
       html: `
