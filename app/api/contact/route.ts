@@ -64,7 +64,7 @@ export async function POST(
     });
 
     await transporter.sendMail({
-      from: `"MH Legal Contact" <${mailbox}>`,
+      from: `"MHlegacylaw Contact" <${mailbox}>`,
       to: recipient,
       replyTo: email.trim(),
       subject: `New Legal Inquiry from ${name.trim()}`,

@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  firmName: "MH Legal",
+  firmName: "MHlegacylaw",
   advocateName: "Adv. Govind Mishra",
   siteUrl: "http://localhost:3000",
 
