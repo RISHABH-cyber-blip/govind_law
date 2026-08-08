@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllReviews } from "@/lib/kv";
-import { verifyAdmin } from "@/app/api/admin/auth/route";
+import { verifyAdmin } from "@/lib/adminAuth";
 
 export async function GET(req: NextRequest) {
   if (!verifyAdmin(req)) {

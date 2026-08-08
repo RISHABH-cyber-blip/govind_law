@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionHeading from '@/components/ui/SectionHeading'
 import { SITE_CONFIG } from '@/lib/constants'
@@ -27,27 +28,45 @@ export default function TestimonialsSection() {
   const [showPhone, setShowPhone] = useState(false)
 
   return (
-    <section className="section-padding bg-dark-card">
+    <section className="section-padding bg-dark-card relative">
       <div className="site-container">
-        <SectionHeading
-          tag="Client Stories"
-          title="What Our Clients Say"
-          subtitle="Discover the impact of trusted legal representation."
-          center
-        />
+        {/* Section Header with top-right "See All Reviews" text link <a> */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10 border-b border-[#222222] pb-6">
+          <div>
+            <span className="section-tag">Client Stories</span>
+            <h2 className="font-serif text-white text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mt-1">
+              What Our Clients Say
+            </h2>
+            <div className="gold-line mt-3" />
+            <p className="text-text-gray mt-3 text-base leading-relaxed max-w-xl">
+              Discover the impact of trusted legal representation across courts in Delhi NCR.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+          <Link
+            href="/reviews"
+            className="text-gold hover:text-gold-light transition-colors font-sans text-sm font-semibold tracking-wide flex items-center gap-2 group whitespace-nowrap pt-2 sm:pt-0"
+          >
+            <span>See All Reviews</span>
+            <i className="fas fa-arrow-right text-xs group-hover:translate-x-1.5 transition-transform" aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Testimonial Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className="bg-black border border-[#252525] border-l-4 border-l-gold rounded-xl p-7"
+              className="bg-black border border-[#252525] border-l-4 border-l-gold rounded-xl p-7 flex flex-col justify-between"
               data-aos="fade-up"
               data-aos-delay={String(i * 100)}
             >
-              <div className="text-gold text-sm mb-4 tracking-widest">★★★★★</div>
-              <p className="font-garamond italic text-gray-200 text-lg leading-relaxed mb-5">
-                &ldquo;{t.quote}&rdquo;
-              </p>
+              <div>
+                <div className="text-gold text-sm mb-4 tracking-widest">★★★★★</div>
+                <p className="font-garamond italic text-gray-200 text-lg leading-relaxed mb-5">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </div>
               <p className="text-text-gray text-xs uppercase tracking-widest">{t.author}</p>
             </div>
           ))}
@@ -86,7 +105,7 @@ export default function TestimonialsSection() {
 
             <button
               onClick={() => setShowPhone((p) => !p)}
-              className="btn-primary text-base py-4 px-10"
+              className="btn-primary text-base py-4 px-10 cursor-pointer"
             >
               <i className="fas fa-phone" aria-hidden="true" />
               Talk to Your Lawyer

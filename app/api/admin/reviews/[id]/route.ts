@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { updateReviewStatus } from "@/lib/kv";
-import { verifyAdmin } from "@/app/api/admin/auth/route";
+import { verifyAdmin } from "@/lib/adminAuth";
 
 export async function PATCH(
   req: NextRequest,
