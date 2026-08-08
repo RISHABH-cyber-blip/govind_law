@@ -23,7 +23,8 @@ export default function ReviewsPage() {
   const fetchApprovedReviews = useCallback(async () => {
     setLoading(true);
     try {
-      const url = `/api/reviews?status=approved&stars=${starFilter}&sort=${sortOption}`;
+      const origin = typeof window !== "undefined" ? window.location.origin : "";
+      const url = `${origin}/api/reviews?status=approved&stars=${starFilter}&sort=${sortOption}`;
       const res = await fetch(url);
       if (res.ok) {
         const data = await res.json();

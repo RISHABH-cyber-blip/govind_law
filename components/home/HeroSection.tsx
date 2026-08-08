@@ -158,7 +158,7 @@ export default function HeroSection() {
             >
               {/* REPLACE: Add your actual image here */}
               <Image
-                src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?w=700&q=80"
+                src="/images/justice-lady.jpg"
                 alt="Lady Justice statue"
                 fill
                 className="object-cover"

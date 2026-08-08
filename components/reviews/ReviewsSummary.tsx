@@ -18,16 +18,18 @@ export default function ReviewsSummary({ showSeeAllLink = false }: ReviewsSummar
 
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-50px" });
-  const [displayRating, setDisplayRating] = useState("0.0");
-  const [displayTotal, setDisplayTotal] = useState(0);
+  const [displayRating, setDisplayRating] = useState("4.9");
+  const [displayTotal, setDisplayTotal] = useState(150);
 
   useEffect(() => {
+    let isMounted = true;
     async function fetchStats() {
       try {
-        const res = await fetch("/api/reviews?status=approved");
+        const origin = typeof window !== "undefined" ? window.location.origin : "";
+        const res = await fetch(`${origin}/api/reviews?status=approved`);
         if (res.ok) {
           const data = await res.json();
-          if (data.stats && data.stats.total > 0) {
+          if (isMounted && data.stats && data.stats.total > 0) {
             setStats(data.stats);
           }
         }
@@ -36,6 +38,9 @@ export default function ReviewsSummary({ showSeeAllLink = false }: ReviewsSummar
       }
     }
     fetchStats();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {

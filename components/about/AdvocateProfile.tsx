@@ -69,7 +69,7 @@ and no hidden charges at any stage of the proceedings.`,
   Adv. Harsoliya ensures every client receives clear communication and thorough
   representation at each stage of their legal journey.`,
     phone: "9958026303",
-    experience: "Experienced",
+    experience: "4+ Years",
     clients: "100+",
   },
 ];
