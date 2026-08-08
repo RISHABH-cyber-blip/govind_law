@@ -1,30 +1,51 @@
-import { NextRequest, NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
-import type { ContactAPIResponse } from '@/lib/types'
+import { NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import type { ContactAPIResponse } from "@/lib/types";
 
 // TODO: Add rate limiting before production (e.g. upstash/ratelimit)
 
-export async function POST(req: NextRequest): Promise<NextResponse<ContactAPIResponse>> {
+export async function POST(
+  req: NextRequest,
+): Promise<NextResponse<ContactAPIResponse>> {
   try {
-    const body = await req.json()
-    const { name, email, message } = body
+    const body = await req.json();
+    const { name, email, message } = body;
 
     // ---- Server-side validation (never trust client data) ----
-    if (!name || typeof name !== 'string' || name.trim().length < 2) {
-      return NextResponse.json({ error: 'Invalid name.' }, { status: 400 })
+    if (!name || typeof name !== "string" || name.trim().length < 2) {
+      return NextResponse.json({ error: "Invalid name." }, { status: 400 });
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 })
+      return NextResponse.json(
+        { error: "Invalid email address." },
+        { status: 400 },
+      );
     }
 
-    if (!message || typeof message !== 'string' || message.trim().length < 20) {
-      return NextResponse.json({ error: 'Message too short.' }, { status: 400 })
+    if (!message || typeof message !== "string" || message.trim().length < 20) {
+      return NextResponse.json(
+        { error: "Message too short." },
+        { status: 400 },
+      );
     }
 
     if (message.trim().length > 2000) {
-      return NextResponse.json({ error: 'Message too long.' }, { status: 400 })
+      return NextResponse.json({ error: "Message too long." }, { status: 400 });
+    }
+
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error(
+        "[contact/route] Missing EMAIL_USER or EMAIL_PASS configuration",
+      );
+      return NextResponse.json(
+        {
+          error:
+            "Email service is not configured. Please contact us by phone or WhatsApp.",
+        },
+        { status: 503 },
+      );
     }
 
     // ---- Nodemailer ----
@@ -33,12 +54,12 @@ export async function POST(req: NextRequest): Promise<NextResponse<ContactAPIRes
     // EMAIL_PASS = your Gmail App Password (not account password)
     // RECIPIENT_EMAIL = where to receive the enquiry
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-    })
+    });
 
     await transporter.sendMail({
       from: `"${name.trim()}" <${process.env.EMAIL_USER}>`,
@@ -59,17 +80,20 @@ export async function POST(req: NextRequest): Promise<NextResponse<ContactAPIRes
             </tr>
             <tr>
               <td style="padding: 10px 0; color: #555; font-weight: bold; vertical-align: top;">Message:</td>
-              <td style="padding: 10px 0; color: #222; line-height: 1.7;">${message.trim().replace(/\n/g, '<br>')}</td>
+              <td style="padding: 10px 0; color: #222; line-height: 1.7;">${message.trim().replace(/\n/g, "<br>")}</td>
             </tr>
           </table>
           <p style="margin-top: 20px; color: #999; font-size: 12px;">Sent via website contact form.</p>
         </div>
       `,
-    })
+    });
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({ success: true });
   } catch (err) {
-    console.error('[contact/route] Error:', err)
-    return NextResponse.json({ error: 'Failed to send email.' }, { status: 500 })
+    console.error("[contact/route] Error:", err);
+    return NextResponse.json(
+      { error: "Failed to send email." },
+      { status: 500 },
+    );
   }
 }

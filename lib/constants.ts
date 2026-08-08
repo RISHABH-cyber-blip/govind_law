@@ -1,6 +1,7 @@
 export const SITE_CONFIG = {
   firmName: "MH Legal",
   advocateName: "Adv. Govind Mishra",
+  siteUrl: "http://localhost:3000",
 
   phone1: "+91 99580 26303",
   phone2: "+91 99580 26303",
@@ -16,10 +17,12 @@ export const SITE_CONFIG = {
   googleMapsEmbedURL:
     "https://maps.google.com/maps?q=A-53+Gulab+Bagh+Najafgarh+Road+Uttam+Nagar+New+Delhi&output=embed",
 
-  instagram1: "https://instagram.com/YOUR_HANDLE",
-  instagram2: "https://instagram.com/YOUR_HANDLE_2",
-  linkedin: "https://linkedin.com/in/YOUR_PROFILE",
-  facebook: "https://facebook.com/YOUR_PAGE",
+  instagram1:
+    "https://www.instagram.com/advocate_govind_mishra__2179?igsh=czYxY2l6azJldW52",
+  instagram2: "https://www.instagram.com/adv_a.s?igsh=MThhampkNXl2eDFocA%3D%3D",
+  linkedin:
+    "https://www.linkedin.com/in/advocate-govind-mishra-b94458258?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+  facebook: "https://www.facebook.com/govind.mishrs.3?mibextid=ZbWKwL",
   twitter: "https://x.com/YOUR_HANDLE",
 
   officeHours: "Monday – Saturday: 10:00 AM – 7:00 PM | Sunday: Closed",
