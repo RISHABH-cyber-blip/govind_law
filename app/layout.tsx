@@ -83,6 +83,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://govind-law.vercel.app/",
   },
+  verification: {
+    google: "bttmutqrnQUg-aGPG-85-uCdD9Ag6j86G_9_kGCyYhU", // e.g. "abc123XYZ..."
+  },
   robots: {
     index: true,
     follow: true,
