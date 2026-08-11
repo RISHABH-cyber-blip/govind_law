@@ -1,46 +1,85 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { SITE_CONFIG } from '@/lib/constants'
-import { useWhatsAppModal } from '@/context/WhatsAppContext'
+import Link from "next/link";
+import { SITE_CONFIG } from "@/lib/constants";
+import { useWhatsAppModal } from "@/context/WhatsAppContext";
 
 interface BlogPostProps {
-  category: string
-  title: string
-  date: string
-  readTime: string
-  children: React.ReactNode
+  category: string;
+  title: string;
+  date: string;
+  readTime: string;
+  children: React.ReactNode;
 }
 
-export default function BlogPost({ category, title, date, readTime, children }: BlogPostProps) {
-  const { openWhatsAppModal } = useWhatsAppModal()
+export default function BlogPost({
+  category,
+  title,
+  date,
+  readTime,
+  children,
+}: BlogPostProps) {
+  const { openWhatsAppModal } = useWhatsAppModal();
   return (
     <>
       {/* Hero */}
       <section className="pt-36 pb-12 bg-black relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)' }}
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)",
+          }}
         />
         <div className="site-container relative z-10 max-w-4xl">
           {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-text-gray mb-8" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-            <i className="fas fa-chevron-right text-[10px]" aria-hidden="true" />
-            <Link href="/blog" className="hover:text-gold transition-colors">Blog</Link>
-            <i className="fas fa-chevron-right text-[10px]" aria-hidden="true" />
+          <nav
+            className="flex items-center gap-2 text-xs text-text-gray mb-8"
+            aria-label="Breadcrumb"
+          >
+            <Link href="/" className="hover:text-gold transition-colors">
+              Home
+            </Link>
+            <i
+              className="fas fa-chevron-right text-[10px]"
+              aria-hidden="true"
+            />
+            <Link href="/blog" className="hover:text-gold transition-colors">
+              Blog
+            </Link>
+            <i
+              className="fas fa-chevron-right text-[10px]"
+              aria-hidden="true"
+            />
             <span className="text-gold truncate">{title}</span>
           </nav>
 
-          <span className="text-xs uppercase tracking-[2px] text-gold font-medium block mb-4">{category}</span>
-          <h1 className="font-serif text-white text-4xl md:text-5xl font-semibold leading-tight max-w-3xl" data-aos="fade-up">
+          <span className="text-xs uppercase tracking-[2px] text-gold font-medium block mb-4">
+            {category}
+          </span>
+          <h1
+            className="font-serif text-white text-4xl md:text-5xl font-semibold leading-tight max-w-3xl"
+            data-aos="fade-up"
+          >
             {title}
           </h1>
 
           <div className="flex flex-wrap items-center gap-5 mt-5 text-sm text-text-gray">
-            <span><i className="fas fa-user mr-2 text-gold" aria-hidden="true" />High-End Lawyers</span>
-            <span><i className="fas fa-calendar mr-2 text-gold" aria-hidden="true" />{date}</span>
-            <span><i className="fas fa-clock mr-2 text-gold" aria-hidden="true" />{readTime}</span>
+            <span>
+              <i className="fas fa-user mr-2 text-gold" aria-hidden="true" />
+              MHlegacylaw
+            </span>
+            <span>
+              <i
+                className="fas fa-calendar mr-2 text-gold"
+                aria-hidden="true"
+              />
+              {date}
+            </span>
+            <span>
+              <i className="fas fa-clock mr-2 text-gold" aria-hidden="true" />
+              {readTime}
+            </span>
           </div>
         </div>
       </section>
@@ -49,7 +88,6 @@ export default function BlogPost({ category, title, date, readTime, children }: 
       <section className="pb-24 bg-black">
         <div className="site-container max-w-4xl">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 items-start">
-
             {/* Main content */}
             <article className="prose-custom">
               {children}
@@ -59,7 +97,7 @@ export default function BlogPost({ category, title, date, readTime, children }: 
                 <a
                   href={`tel:${SITE_CONFIG.phone1}`}
                   className="inline-flex items-center gap-3 bg-gold text-black font-bold py-4 px-8 rounded-full text-base hover:bg-gold-light transition-colors shadow-lg"
-                  style={{ boxShadow: '0 8px 32px rgba(201,168,76,0.3)' }}
+                  style={{ boxShadow: "0 8px 32px rgba(201,168,76,0.3)" }}
                 >
                   <i className="fas fa-phone" aria-hidden="true" />
                   Call Now for Legal Advice
@@ -71,16 +109,22 @@ export default function BlogPost({ category, title, date, readTime, children }: 
             <aside className="sticky top-28 space-y-6">
               {/* Contact card */}
               <div className="bg-dark-card border border-[#252525] rounded-2xl p-6">
-                <h3 className="font-serif text-white text-lg mb-3">Need Legal Help?</h3>
+                <h3 className="font-serif text-white text-lg mb-3">
+                  Need Legal Help?
+                </h3>
                 <p className="text-text-gray text-sm leading-relaxed mb-5">
-                  Contact us today for a confidential consultation with our advocate.
+                  Contact us today for a confidential consultation with our
+                  advocate.
                 </p>
                 <div className="flex flex-col gap-3">
                   <Link
                     href="/contact"
                     className="block text-center bg-gold text-black font-bold py-3 px-4 rounded-full text-sm hover:bg-gold-light transition-colors"
                   >
-                    <i className="fas fa-calendar-check mr-2" aria-hidden="true" />
+                    <i
+                      className="fas fa-calendar-check mr-2"
+                      aria-hidden="true"
+                    />
                     Book Consultation
                   </Link>
                   <button
@@ -96,8 +140,12 @@ export default function BlogPost({ category, title, date, readTime, children }: 
 
               {/* Office hours card */}
               <div className="bg-dark-card border border-[#252525] rounded-2xl p-6">
-                <h4 className="font-serif text-white text-base mb-3">Office Hours</h4>
-                <p className="text-text-gray text-sm">{SITE_CONFIG.officeHours}</p>
+                <h4 className="font-serif text-white text-base mb-3">
+                  Office Hours
+                </h4>
+                <p className="text-text-gray text-sm">
+                  {SITE_CONFIG.officeHours}
+                </p>
                 <a
                   href={`tel:${SITE_CONFIG.phone1}`}
                   className="flex items-center gap-2 mt-3 text-gold text-sm hover:text-gold-light transition-colors"
@@ -109,12 +157,20 @@ export default function BlogPost({ category, title, date, readTime, children }: 
 
               {/* More posts */}
               <div className="bg-dark-card border border-[#252525] rounded-2xl p-6">
-                <h4 className="font-serif text-white text-base mb-4">More Articles</h4>
+                <h4 className="font-serif text-white text-base mb-4">
+                  More Articles
+                </h4>
                 <div className="space-y-3">
-                  <Link href="/blog/civil-case" className="block text-text-gray text-sm hover:text-gold transition-colors leading-snug">
+                  <Link
+                    href="/blog/civil-case"
+                    className="block text-text-gray text-sm hover:text-gold transition-colors leading-snug"
+                  >
                     → How to File a Civil Case in Delhi
                   </Link>
-                  <Link href="/blog/ndps-bail" className="block text-text-gray text-sm hover:text-gold transition-colors leading-snug">
+                  <Link
+                    href="/blog/ndps-bail"
+                    className="block text-text-gray text-sm hover:text-gold transition-colors leading-snug"
+                  >
                     → How to Get Bail in NDPS Cases in Delhi
                   </Link>
                 </div>
@@ -130,7 +186,7 @@ export default function BlogPost({ category, title, date, readTime, children }: 
           font-family: var(--font-playfair), Georgia, serif;
           font-size: 1.75rem;
           font-weight: 600;
-          color: #C9A84C;
+          color: #c9a84c;
           margin: 2.5rem 0 1rem;
         }
         .prose-custom h3 {
@@ -164,11 +220,11 @@ export default function BlogPost({ category, title, date, readTime, children }: 
           font-size: 1.1rem;
           color: #e5e7eb;
           line-height: 1.8;
-          border-left: 3px solid #C9A84C;
+          border-left: 3px solid #c9a84c;
           padding-left: 1.25rem;
           margin-bottom: 2rem;
         }
       `}</style>
     </>
-  )
+  );
 }
