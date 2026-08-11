@@ -34,27 +34,65 @@ const garamond = Cormorant_Garamond({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_CONFIG.siteUrl;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: `${SITE_CONFIG.firmName} | Legal Services Delhi NCR`,
-  description:
-    "Trusted legal advocates in Delhi NCR. Criminal Law, Family Law, Civil Law, NDPS, Commercial Law. Confidential & result-oriented legal representation.",
-  alternates: {
-    canonical: "/",
+  metadataBase: new URL("https://mhlegal.in"),
+  title: {
+    default: "MH Legal | Advocate in Uttam Nagar, Delhi NCR",
+    template: "%s | MH Legal Delhi",
   },
+  description:
+    "MH Legal — experienced advocates in Uttam Nagar, New Delhi. Criminal law, bail applications, NDPS, family law, divorce, civil litigation. Delhi High Court & district courts. Call +91 99580 26303.",
+  keywords: [
+    "advocate Uttam Nagar",
+    "lawyer Uttam Nagar Delhi",
+    "criminal lawyer Delhi NCR",
+    "bail application Delhi",
+    "NDPS lawyer Delhi",
+    "family lawyer Dwarka",
+    "divorce lawyer Uttam Nagar",
+    "civil lawyer New Delhi",
+    "advocate near me Delhi",
+    "MH Legal",
+    "Govind Mishra advocate",
+  ],
+  authors: [{ name: "Adv. Govind Mishra" }],
+  creator: "MH Legal",
   openGraph: {
-    title: `${SITE_CONFIG.firmName} | Legal Services Delhi NCR`,
-    description:
-      "Trusted legal advocates in Delhi NCR. Criminal Law, Family Law, Civil Law, NDPS, Commercial Law. Confidential & result-oriented legal representation.",
-    url: siteUrl,
-    siteName: SITE_CONFIG.firmName,
     type: "website",
     locale: "en_IN",
+    url: "https://mhlegal.in",
+    siteName: "MH Legal",
+    title: "MH Legal | Advocate in Uttam Nagar, Delhi NCR",
+    description:
+      "Experienced advocates in Uttam Nagar, New Delhi. Criminal law, bail, NDPS, family law, civil litigation. Delhi High Court & district courts.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "MH Legal - Advocate in Delhi NCR",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_CONFIG.firmName} | Legal Services Delhi NCR`,
+    title: "MH Legal | Advocate in Uttam Nagar, Delhi NCR",
     description:
-      "Trusted legal advocates in Delhi NCR. Criminal Law, Family Law, Civil Law, NDPS, Commercial Law. Confidential & result-oriented legal representation.",
+      "Experienced advocates in Uttam Nagar, New Delhi. Criminal, family, civil law.",
+    images: ["/images/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://mhlegal.in",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
