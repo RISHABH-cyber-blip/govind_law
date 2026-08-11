@@ -34,7 +34,7 @@ const garamond = Cormorant_Garamond({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || SITE_CONFIG.siteUrl;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mhlegal.in"),
+  metadataBase: new URL("https://govind-law.vercel.app/"),
   title: {
     default: "MH Legal | Advocate in Uttam Nagar, Delhi NCR",
     template: "%s | MH Legal Delhi",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://mhlegal.in",
+    url: "https://govind-law.vercel.app/",
     siteName: "MH Legal",
     title: "MH Legal | Advocate in Uttam Nagar, Delhi NCR",
     description:
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://mhlegal.in",
+    canonical: "https://govind-law.vercel.app/",
   },
   robots: {
     index: true,

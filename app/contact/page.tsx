@@ -1,11 +1,19 @@
-import ContactForm from '@/components/contact/ContactForm'
-import OfficeMap from '@/components/contact/OfficeMap'
-import type { Metadata } from 'next'
+import ContactForm from "@/components/contact/ContactForm";
+import OfficeMap from "@/components/contact/OfficeMap";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Govind Legal Associates',
-  description: 'Get in touch for a confidential legal consultation in Delhi NCR.',
-}
+  title: "Contact Us | Book a Legal Consultation",
+  description:
+    "Contact MH Legal in Uttam Nagar, New Delhi. Call +91 99580 26303. Office: A-53, Gulab Bagh, Main Najafgarh Road, Near Pillar 750, Uttam Nagar, New Delhi 110059.",
+  alternates: { canonical: "https://govind-law.vercel.app/contact" },
+  openGraph: {
+    title: "Contact MH Legal | Book a Consultation",
+    description:
+      "Call or WhatsApp Adv. Govind Mishra: +91 99580 26303. Uttam Nagar, New Delhi.",
+    url: "https://govind-law.vercel.app/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -14,11 +22,17 @@ export default function ContactPage() {
       <section className="pt-36 pb-16 text-center relative bg-black overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%)' }}
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%)",
+          }}
         />
         <div className="site-container relative z-10">
           <span className="section-tag">Get In Touch</span>
-          <h1 className="font-serif text-white text-5xl md:text-6xl font-semibold" data-aos="fade-up">
+          <h1
+            className="font-serif text-white text-5xl md:text-6xl font-semibold"
+            data-aos="fade-up"
+          >
             Reach Out Today
           </h1>
           <div className="gold-line mx-auto mt-4" />
@@ -42,5 +56,5 @@ export default function ContactPage() {
         </div>
       </section>
     </>
-  )
+  );
 }

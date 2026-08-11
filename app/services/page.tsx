@@ -5,9 +5,16 @@ import type { ServiceItem } from "@/lib/types";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Legal Services | Govind Legal Associates",
+  title: "Legal Services | Criminal, Family & Civil Law",
   description:
-    "Criminal Law, Family Law, Civil Law, NDPS Law, Commercial Law — Delhi NCR.",
+    "MH Legal offers criminal defence, bail applications, NDPS cases, family law, divorce, civil litigation, property disputes, cheque bounce, consumer forum, writ petitions in Delhi NCR.",
+  alternates: { canonical: "https://govind-law.vercel.app/services" },
+  openGraph: {
+    title: "Legal Services | MH Legal Delhi NCR",
+    description:
+      "Criminal, family, civil law services by experienced Delhi advocates.",
+    url: "https://govind-law.vercel.app/services",
+  },
 };
 
 const SERVICES: ServiceItem[] = [
