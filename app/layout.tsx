@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
 import WhatsAppProvider from "@/components/layout/WhatsAppProvider";
@@ -147,6 +148,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
         </WhatsAppProvider>
+        <Analytics />
       </body>
     </html>
   );
