@@ -31,7 +31,7 @@ export default function DisclaimerModal() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center"
+          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-x-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -40,20 +40,20 @@ export default function DisclaimerModal() {
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
           <motion.div
-            className="relative z-10 bg-white text-gray-900 w-[90%] max-w-[640px] max-h-[88vh] rounded-xl overflow-y-auto shadow-2xl"
+            className="relative z-10 bg-white text-gray-900 w-[90vw] max-w-lg max-h-[88vh] rounded-xl overflow-y-auto shadow-2xl box-border"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <div className="p-8 md:p-10">
+            <div className="p-6 sm:p-8">
               <div className="w-1 h-8 bg-red-500 mb-4" />
 
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 tracking-wide uppercase">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 tracking-wide uppercase break-words">
                 Disclaimer &amp; Confirmation
               </h2>
 
-              <p className="text-sm leading-relaxed mb-4 text-gray-700">
+              <p className="text-sm leading-relaxed mb-4 text-gray-700 break-words">
                 As per the rules of the Bar Council of India, advocates and law
                 firms are prohibited from soliciting work or advertising in any
                 manner. This website is, therefore, strictly for informational
@@ -62,19 +62,19 @@ export default function DisclaimerModal() {
                 established through this website.
               </p>
 
-              <p className="text-sm leading-relaxed mb-4 text-gray-700">
+              <p className="text-sm leading-relaxed mb-4 text-gray-700 break-words">
                 This website is intended solely for informational purposes and
                 is not to be construed as a solicitation, advertisement, or
                 legal advice. Access to this website is provided only upon the
                 user&apos;s specific request.
               </p>
 
-              <p className="text-sm font-semibold mb-3 text-gray-800">
+              <p className="text-sm font-semibold mb-3 text-gray-800 break-words">
                 By clicking on the &quot;I AGREE&quot; button below, the user
                 acknowledges and confirms that:
               </p>
 
-              <ol className="text-sm leading-loose text-gray-700 list-decimal pl-5 mb-4 space-y-1">
+              <ol className="text-sm leading-loose text-gray-700 list-decimal pl-5 mb-4 space-y-1 break-words">
                 <li>
                   The user is seeking information voluntarily and of their own
                   accord, without any solicitation, advertisement, or inducement
@@ -103,7 +103,7 @@ export default function DisclaimerModal() {
                 </li>
               </ol>
 
-              <p className="text-sm text-gray-700 mb-6">
+              <p className="text-sm text-gray-700 mb-6 break-words">
                 If the user does not agree to the above terms, they are advised
                 to click on &quot;I DISAGREE&quot; and exit the website.
               </p>

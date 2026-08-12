@@ -111,6 +111,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Font Awesome 6 */}
         <link
           rel="stylesheet"
