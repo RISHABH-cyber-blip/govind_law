@@ -31,7 +31,7 @@ export default function DisclaimerModal() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-x-hidden"
+          className="fixed inset-0 z-[9999] flex items-center justify-center px-4 overflow-x-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -40,7 +40,7 @@ export default function DisclaimerModal() {
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
 
           <motion.div
-            className="relative z-10 bg-white text-gray-900 w-[90vw] max-w-lg max-h-[88vh] rounded-xl overflow-y-auto shadow-2xl box-border"
+            className="relative z-10 bg-white text-gray-900 w-full max-w-lg max-h-[88vh] rounded-xl overflow-y-auto shadow-2xl box-border mx-auto"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
