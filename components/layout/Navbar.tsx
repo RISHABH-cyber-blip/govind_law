@@ -36,20 +36,20 @@ export default function Navbar() {
           scrolled ? 'bg-black/95 backdrop-blur-md border-b border-[#1a1a1a] py-3' : 'py-5'
         }`}
       >
-        <div className="site-container flex items-center justify-between">
+        <div className="site-container flex min-w-0 items-center justify-between gap-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex min-w-0 items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
               <i className="fas fa-scale-balanced text-black text-sm" aria-hidden="true" />
             </div>
-            <span className="font-serif text-xl font-semibold text-white">
+            <span className="truncate font-serif text-xl font-semibold text-white">
               {SITE_CONFIG.firmName.split(' ')[0]}{' '}
               <span className="text-gold">{SITE_CONFIG.firmName.split(' ').slice(1).join(' ')}</span>
             </span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex shrink-0 items-center gap-8" aria-label="Main navigation">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href
               return (
@@ -74,7 +74,7 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex shrink-0 items-center gap-3">
             <a
               href={`tel:${SITE_CONFIG.phone1}`}
               className="btn-outline text-sm py-2 px-5"
@@ -94,7 +94,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            className="md:hidden p-2 text-white"
+            className="lg:hidden shrink-0 p-2 text-white"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
