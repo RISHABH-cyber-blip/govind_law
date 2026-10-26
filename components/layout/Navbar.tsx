@@ -59,19 +59,20 @@ export default function Navbar() {
           scrolled ? 'bg-black/95 backdrop-blur-md border-b border-[#1a1a1a] py-3' : 'bg-black/60 backdrop-blur-md py-3.5 sm:py-4 md:py-5'
         }`}
       >
-        <div className="site-container flex items-center justify-between gap-3 w-full">
-          {/* Logo - Flexible with truncate to never push hamburger off screen */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 flex-shrink min-w-0 group">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gold flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
-              <i className="fas fa-scale-balanced text-black text-xs sm:text-sm" aria-hidden="true" />
+        <div className="site-container flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center flex-shrink-0">
+              <i className="fas fa-scale-balanced text-black text-sm" aria-hidden="true" />
             </div>
-            <span className="font-serif text-base sm:text-lg lg:text-xl font-semibold text-white tracking-tight truncate">
-              {SITE_CONFIG.firmName}
+            <span className="font-serif text-xl font-semibold text-white">
+              {SITE_CONFIG.firmName.split(' ')[0]}{' '}
+              <span className="text-gold">{SITE_CONFIG.firmName.split(' ').slice(1).join(' ')}</span>
             </span>
           </Link>
 
-          {/* Desktop nav (Large screens: 1024px+) */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 flex-shrink-0" aria-label="Main navigation">
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href
               return (
@@ -95,8 +96,8 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Desktop CTA (Large screens: 1024px+) */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3">
             <a
               href={`tel:${SITE_CONFIG.phone1}`}
               className="btn-outline text-sm py-2 px-4 hover:border-gold"
@@ -114,27 +115,14 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Tablet & Mobile Right Actions (up to 1023px) */}
-          <div className="flex items-center gap-2 lg:hidden flex-shrink-0">
-            {/* Quick Call button on tablet screens (768px - 1023px) */}
-            <a
-              href={`tel:${SITE_CONFIG.phone1}`}
-              className="hidden md:inline-flex items-center gap-1.5 btn-outline text-xs py-1.5 px-3 border-white/30"
-              aria-label="Call Advocate"
-            >
-              <i className="fas fa-phone text-xs text-gold" aria-hidden="true" />
-              <span>Call</span>
-            </a>
-
-            {/* Hamburger Button - always visible and never cut off */}
-            <button
-              className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 hover:border-gold/40 flex items-center justify-center text-white hover:text-gold active:scale-95 transition-all flex-shrink-0 cursor-pointer"
-              onClick={() => setMobileOpen(true)}
-              aria-label="Open menu"
-            >
-              <i className="fas fa-bars text-lg" aria-hidden="true" />
-            </button>
-          </div>
+          {/* Hamburger */}
+          <button
+            className="md:hidden p-2 text-white"
+            onClick={() => setMobileOpen(true)}
+            aria-label="Open menu"
+          >
+            <i className="fas fa-bars text-xl" aria-hidden="true" />
+          </button>
         </div>
       </header>
 
