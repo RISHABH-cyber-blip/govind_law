@@ -35,6 +35,7 @@ export default function AdvocateSection() {
                 src="/images/team/govind-mishra.jpg"
                 alt="Adv. Govind Mishra"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="object-cover object-top"
                 style={{ filter: "grayscale(10%)" }}
               />
@@ -117,6 +118,7 @@ export default function AdvocateSection() {
                 src="/images/team/nikita-harsoliya.jpg"
                 alt="Adv. Nikita Harsoliya"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="object-cover object-top"
                 style={{ filter: "grayscale(10%)" }}
               />
@@ -191,7 +193,7 @@ export default function AdvocateSection() {
 
         {/* Stats row */}
         <div
-          className="grid grid-cols-3 gap-6 border-t border-[#252525] pt-12"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-[#252525] pt-12"
           data-aos="fade-up"
         >
           <AnimatedCounter target={150} suffix="+" label="Clients Served" />

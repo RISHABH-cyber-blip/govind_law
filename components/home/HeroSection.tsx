@@ -110,22 +110,22 @@ export default function HeroSection() {
 
             <h1
               ref={headingRef}
-              className="font-serif text-white text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6"
+              className="font-serif text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.15] mb-6"
             >
               Justice Is Not a Luxury. It Is Your Right.
             </h1>
 
             <div ref={contentRef}>
-              <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-lg">
                 Experienced advocates providing confidential, result-oriented
                 legal representation across Delhi NCR courts — from Tis Hazari
                 to Delhi High Court.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
                 <Link
                   href="/contact"
-                  className="btn-primary text-base py-3 px-8"
+                  className="btn-primary text-sm sm:text-base py-3 px-6 sm:px-8 justify-center text-center"
                 >
                   <i className="fas fa-calendar-check" aria-hidden="true" />
                   Book Consultation
@@ -133,7 +133,7 @@ export default function HeroSection() {
                 <button
                   type="button"
                   onClick={() => openWhatsAppModal()}
-                  className="btn-outline text-base py-3 px-8 cursor-pointer"
+                  className="btn-outline text-sm sm:text-base py-3 px-6 sm:px-8 cursor-pointer justify-center text-center"
                 >
                   <i className="fab fa-whatsapp" aria-hidden="true" />
                   WhatsApp Now

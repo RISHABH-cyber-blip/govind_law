@@ -105,9 +105,9 @@ export default function TestimonialsSection() {
 
             <button
               onClick={() => setShowPhone((p) => !p)}
-              className="btn-primary text-base py-4 px-10 cursor-pointer"
+              className="btn-primary text-sm sm:text-base py-3.5 sm:py-4 px-6 sm:px-10 cursor-pointer"
             >
-              <i className="fas fa-phone" aria-hidden="true" />
+              <i className="fas fa-phone text-xs sm:text-sm" aria-hidden="true" />
               Talk to Your Lawyer
             </button>
           </div>

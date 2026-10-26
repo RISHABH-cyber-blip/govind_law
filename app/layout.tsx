@@ -119,12 +119,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           crossOrigin="anonymous"
         />
-        {/* Bootstrap 5 CSS (grid only — used on Services & Contact pages) */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-          crossOrigin="anonymous"
-        />
+
         {/* AOS CSS */}
         <link
           rel="stylesheet"

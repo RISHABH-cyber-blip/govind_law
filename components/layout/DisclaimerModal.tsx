@@ -7,29 +7,37 @@ export default function DisclaimerModal() {
   const [show, setShow] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const accepted = localStorage.getItem("disclaimer_accepted");
-    setShow(accepted !== "true");
+    try {
+      const accepted = localStorage.getItem("disclaimer_accepted");
+      const shouldShow = accepted !== "true";
+      setShow(shouldShow);
+      if (shouldShow) {
+        document.body.style.overflow = "hidden";
+      }
+    } catch {
+      setShow(false);
+    }
   }, []);
 
   const handleAgree = () => {
-    localStorage.setItem("disclaimer_accepted", "true");
+    try {
+      localStorage.setItem("disclaimer_accepted", "true");
+    } catch (e) {
+      console.warn("Storage error:", e);
+    }
+    document.body.style.overflow = "";
     setShow(false);
     window.dispatchEvent(new Event("disclaimer_accepted"));
   };
 
   const handleDisagree = () => {
+    document.body.style.overflow = "";
     window.location.href = "https://www.google.com";
   };
 
-  if (show === null) {
-    return (
-      <div className="fixed inset-0 z-[9999] bg-black" aria-hidden="true" />
-    );
-  }
-
   return (
     <AnimatePresence>
-      {show && (
+      {show === true && (
         <motion.div
           className="fixed inset-0 z-[9999] flex items-center justify-center px-4 overflow-x-hidden"
           initial={{ opacity: 0 }}

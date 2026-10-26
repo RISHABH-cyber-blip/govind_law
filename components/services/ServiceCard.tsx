@@ -64,26 +64,25 @@ export default function ServiceCard({ icon, title, description, bullets, image, 
       className={`border-b border-[#1a1a1a] py-20 ${index % 2 === 1 ? 'bg-dark-card' : 'bg-black'}`}
     >
       <div className="site-container">
-        {/* Bootstrap grid for this section per spec */}
-        <div className={`row align-items-center g-5 ${isEven ? '' : 'flex-row-reverse'}`}>
+        {/* Responsive grid */}
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center`}>
 
           {/* Image */}
-          <div className="col-md-6" ref={imgRef}>
-            <div className="rounded-2xl overflow-hidden" style={{ height: '420px' }}>
-              {/* REPLACE: Add relevant law images per service */}
+          <div className={isEven ? 'order-1' : 'order-1 lg:order-2'} ref={imgRef}>
+            <div className="rounded-2xl overflow-hidden h-[250px] sm:h-[320px] md:h-[420px]">
               <Image
                 src={image}
                 alt={title}
                 width={700}
                 height={420}
-                className="w-full object-cover hover:scale-105 transition-transform duration-700"
-                style={{ height: '420px', objectFit: 'cover', filter: 'grayscale(15%)' }}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                style={{ filter: 'grayscale(15%)' }}
               />
             </div>
           </div>
 
           {/* Text */}
-          <div className="col-md-6" ref={textRef}>
+          <div className={isEven ? 'order-2' : 'order-2 lg:order-1'} ref={textRef}>
             <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
               <i className={`${icon} text-gold text-2xl`} aria-hidden="true" />
             </div>

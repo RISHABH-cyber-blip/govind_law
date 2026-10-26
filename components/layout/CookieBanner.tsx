@@ -8,20 +8,28 @@ export default function CookieBanner() {
 
   useEffect(() => {
     const tryShow = () => {
-      const disclaimerAccepted =
-        localStorage.getItem("disclaimer_accepted") === "true";
-      const cookieHandled = localStorage.getItem("cookie_accepted") !== null;
-      if (disclaimerAccepted && !cookieHandled) {
-        setTimeout(() => setShow(true), 700);
+      try {
+        const disclaimerAccepted =
+          localStorage.getItem("disclaimer_accepted") === "true";
+        const cookieHandled = localStorage.getItem("cookie_accepted") !== null;
+        if (disclaimerAccepted && !cookieHandled) {
+          setTimeout(() => setShow(true), 700);
+        }
+      } catch {
+        // storage disabled or unavailable
       }
     };
 
     tryShow();
 
     const onDisclaimerAccepted = () => {
-      const cookieHandled = localStorage.getItem("cookie_accepted") !== null;
-      if (!cookieHandled) {
-        setTimeout(() => setShow(true), 700);
+      try {
+        const cookieHandled = localStorage.getItem("cookie_accepted") !== null;
+        if (!cookieHandled) {
+          setTimeout(() => setShow(true), 700);
+        }
+      } catch {
+        // ignore
       }
     };
 
@@ -31,12 +39,16 @@ export default function CookieBanner() {
   }, []);
 
   const accept = () => {
-    localStorage.setItem("cookie_accepted", "true");
+    try {
+      localStorage.setItem("cookie_accepted", "true");
+    } catch {}
     setShow(false);
   };
 
   const decline = () => {
-    localStorage.setItem("cookie_accepted", "false");
+    try {
+      localStorage.setItem("cookie_accepted", "false");
+    } catch {}
     setShow(false);
   };
 
@@ -44,7 +56,7 @@ export default function CookieBanner() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed bottom-0 left-0 right-0 z-[9998] bg-dark-gray border-t border-[#2a2a2a]"
+          className="fixed bottom-0 left-0 right-0 z-[900] bg-dark-gray border-t border-[#2a2a2a] shadow-2xl"
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
           exit={{ y: "100%" }}

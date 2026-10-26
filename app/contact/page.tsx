@@ -42,14 +42,14 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form + Map — Bootstrap grid per spec */}
+      {/* Form + Map */}
       <section className="section-padding bg-black">
         <div className="site-container">
-          <div className="row g-5">
-            <div className="col-md-6" data-aos="fade-right">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            <div data-aos="fade-right">
               <ContactForm />
             </div>
-            <div className="col-md-6" data-aos="fade-left">
+            <div data-aos="fade-left">
               <OfficeMap />
             </div>
           </div>

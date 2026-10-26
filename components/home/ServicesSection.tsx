@@ -64,7 +64,7 @@ export default function ServicesSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/contact" className="btn-primary text-base py-4 px-10">
+          <Link href="/contact" className="btn-primary text-sm sm:text-base py-3.5 sm:py-4 px-6 sm:px-10">
             <i className="fas fa-calendar-check" aria-hidden="true" />
             Get Legal Consultation Now
           </Link>

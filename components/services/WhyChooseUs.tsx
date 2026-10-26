@@ -18,12 +18,12 @@ export default function WhyChooseUs() {
   return (
     <section className="section-padding bg-black">
       <div className="site-container">
-        {/* Bootstrap grid per spec */}
-        <div className="row g-5 align-items-start">
+        {/* Responsive grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-          <div className="col-md-6" data-aos="fade-right">
+          <div data-aos="fade-right">
             <span className="section-tag">Our Promise</span>
-            <h2 className="font-serif text-white text-4xl font-semibold mb-2">Why Choose Us</h2>
+            <h2 className="font-serif text-white text-3xl sm:text-4xl font-semibold mb-2">Why Choose Us</h2>
             <div className="gold-line" />
             <p className="text-gray-400 mt-4 mb-8 leading-relaxed">
               When your freedom, family, or livelihood is at stake, you deserve an advocate who
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
             </ul>
           </div>
 
-          <div className="col-md-6" data-aos="fade-left">
+          <div data-aos="fade-left">
             <div className="flex flex-col gap-4 mt-0 lg:mt-16 lg:pl-8">
               <Link
                 href="/contact"

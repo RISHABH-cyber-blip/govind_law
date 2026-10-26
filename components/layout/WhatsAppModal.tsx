@@ -138,7 +138,7 @@ export default function WhatsAppModal() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-end md:items-end md:justify-end md:p-6">
+        <div className="fixed inset-0 z-[10001] flex items-end md:items-end md:justify-end md:p-6">
           {/* Dark semi-transparent backdrop */}
           <motion.div
             className="fixed inset-0 bg-black/70 backdrop-blur-sm"
